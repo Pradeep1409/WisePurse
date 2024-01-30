@@ -1,14 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "client/**",
-        "use": "@vercel/static-build"
-      },
-      {
-        "src": "backend/**",
-        "use": "@vercel/node"
-      }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",  
+      "use": "@vercel/node"
+    },
+    {
+      "src": "backend/build/index.html", 
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "backend/server.js"  
+    },
+    {
+      "src": "/(.*)",
+      "dest": "backend/build/index.html"  
+    }
+  ],
+  "env": {
+    "PORT": 8080  
   }
-  
+}

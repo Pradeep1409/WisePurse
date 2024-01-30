@@ -22,6 +22,8 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(cors())
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 //routes
 //user routes
 app.use('/api/v1/users', require('./routes/userRoute'))
