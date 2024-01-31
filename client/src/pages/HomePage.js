@@ -65,7 +65,7 @@ const HomePage = () => {
         try {
             const user = JSON.parse(localStorage.getItem("user"));
             setLoading(true);
-            const res = await axios.post("/transactions/get-transaction", { userid: user._id, frequency, selectedDate, type});
+            const res = await axios.post("https://wise-purse.vercel.app/transactions/get-transaction", { userid: user._id, frequency, selectedDate, type});
             setLoading(false);
             setAllTransaction(res.data);
             console.log(res.data);
@@ -81,7 +81,7 @@ const HomePage = () => {
     const handleDelete = async (record) => {
         try {
             setLoading(true);
-            await axios.post("/transactions/delete-transaction", {transactionId:record._id})
+            await axios.post("https://wise-purse.vercel.app/transactions/delete-transaction", {transactionId:record._id})
             setLoading(false);
             window.location.reload();
             message.success("Transaction Deleted")
@@ -98,12 +98,12 @@ const HomePage = () => {
             const user = JSON.parse(localStorage.getItem('user'))
             setLoading(true)
             if(editable){
-                await axios.post('/transactions/edit-transaction', {payload: {...value, userid: user._id,}, transactionId: editable._id,});
+                await axios.post('https://wise-purse.vercel.app/transactions/edit-transaction', {payload: {...value, userid: user._id,}, transactionId: editable._id,});
                 setLoading(false)
                 window.location.reload();
                 message.success('Transaction Edited Successfully')
             }else{
-                await axios.post('/transactions/add-transaction', {...value, userid:user._id})
+                await axios.post('https://wise-purse.vercel.app/transactions/add-transaction', {...value, userid:user._id})
                 setLoading(false)
                 window.location.reload();
                 message.success('Transaction Added Successfully')

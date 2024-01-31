@@ -8,12 +8,12 @@
     ],
     "routes": [
       {
-        "src": "/api/v1/(.*)",
-        "dest": "/api/v1/$1"
+        "src": "https://wise-purse.vercel.app/api/v1/(.*)",
+        "dest": "https://wise-purse.vercel.app/api/v1/$1"
       },
       {
         "src": "/(.*)",
-        "dest": "https://wise-purse.vercel.app/$1", 
+        "dest": "https://wise-purse.vercel.app/", 
         "status": 200
       }
     ]
