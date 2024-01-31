@@ -25,11 +25,11 @@ const corsOptions = {
     origin: ['https://wise-purse.vercel.app'],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // enable set cookie
-    optionsSuccessStatus: 204,
+   
 };
 app.use(cors(corsOptions))
 
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 //routes
 //user routes
