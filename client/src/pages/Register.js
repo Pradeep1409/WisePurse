@@ -10,7 +10,7 @@ const Register = () => {
     const submitHandler = async (values) => {
         try {
             setLaoding(true)
-            await axios.post('https://wise-purse.vercel.app/users/register', values)
+            await axios.post('https://wise-purse-api.vercel.app/users/register', values)
             message.success('Registration Successful')
             setLaoding(false)
             navigate('https://wise-purse.vercel.app/login')
