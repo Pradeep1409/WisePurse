@@ -10,10 +10,10 @@ const Register = () => {
     const submitHandler = async (values) => {
         try {
             setLaoding(true)
-            await axios.post('https://wise-purse-api.vercel.app/users/register', values)
+            await axios.post('/users/register', values)
             message.success('Registration Successful')
             setLaoding(false)
-            navigate('https://wise-purse.vercel.app/login')
+            navigate('/login')
         } catch (error) {
             setLaoding(false)
             message.error("Invalid Something Went Wrong");
@@ -24,7 +24,7 @@ const Register = () => {
     //Prevent for login user
     useEffect(() => {
         if (localStorage.getItem('user')) {
-            navigate('https://wise-purse.vercel.app')
+            navigate('/')
         }
     }, [navigate]);
 

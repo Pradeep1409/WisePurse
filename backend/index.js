@@ -21,13 +21,7 @@ const app = express()
 app.use(morgan('dev'))
 app.use(express.json())
 
-const corsOptions = {
-    origin: ['https://wise-purse.vercel.app'],
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // enable set cookie
-   
-};
-app.use(cors(corsOptions))
+app.use(cors())
 
 // app.use(express.static(path.join(__dirname, 'build')));
 

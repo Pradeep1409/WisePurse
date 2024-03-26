@@ -12,7 +12,7 @@ const Login = () => {
     const submitHandler = async (values) => {
         try {
             setLaoding(true);
-            const { data } = await axios.post("https://wise-purse-api.vercel.app/users/login", values);
+            const { data } = await axios.post(" /users/login", values);
             setLaoding(false);
             message.success("Login Success");
             localStorage.setItem('user', JSON.stringify({ ...data.user, password: " " }))
